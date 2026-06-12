@@ -1,0 +1,10 @@
+backend/node_modules
+frontend/userauthclient/node_modules
+
+backend/.env
+frontend/userauthclient/.env
+
+dist
+
+#a root git ignore file to make sure every sensitive cred is stored and use 
+#safely without being exposed

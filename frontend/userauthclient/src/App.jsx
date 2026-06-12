@@ -1,23 +1,66 @@
+import {
+BrowserRouter,
+Routes,
+Route
+} from "react-router-dom";
+import ProtectedRoute from "./components/ProtectedRoute";
+
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Home from "./pages/Home";
 
 
 function App(){
 
 return (
 
-<div>
+<BrowserRouter>
 
-<h1>
-MERN Auth App
-</h1>
+<Routes>
 
-<p>
-Frontend is running
-</p>
+<Route
+path="/"
+element={<Login/>}
+/>
 
-</div>
+
+<Route
+path="/login"
+element={<Login/>}
+/>
+
+
+<Route
+path="/register"
+element={<Register/>}
+/>
+
+
+<Route
+
+path="/home"
+
+element={
+
+<ProtectedRoute>
+
+<Home/>
+
+</ProtectedRoute>
+
+}
+
+/>
+
+
+</Routes>
+
+
+</BrowserRouter>
 
 )
 
 }
+
 
 export default App;
