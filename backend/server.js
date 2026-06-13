@@ -2,7 +2,8 @@ const express=require("express");
 const cors=require("cors");
 require("dotenv").config();
 
-
+const productRoutes =
+require("./routes/productRoutes");
 const connectDB=require("./config/db");
 
 
@@ -18,8 +19,8 @@ app.use(express.json());
 
 
 app.use(
-"/api/auth",
-require("./routes/authRoutes")
+"/api/products",
+require("./routes/productRoutes")
 );
 
 
