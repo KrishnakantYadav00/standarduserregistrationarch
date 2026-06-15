@@ -1,7 +1,7 @@
 import {useContext,useEffect,useState} from "react";
 import {ProductContext} from "../context/productContext";
 import ProductForm from "../components/productform";
-
+import ProductCard from "../components/productcard";
 
 function Products(){
 
@@ -44,12 +44,12 @@ onChange={(e)=>setSearch(e.target.value)}
 
 {
 filteredProducts.map((p)=>(
-<div key={p._id}>
 
-<h3>{p.name}</h3>
-<p>{p.price}</p>
+<ProductCard
+key={p._id}
+product={p}
+/>
 
-</div>
 ))
 }
 

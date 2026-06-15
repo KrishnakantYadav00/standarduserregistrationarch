@@ -1,5 +1,8 @@
-const ProductCard=({product})=>{
+import {useContext} from "react";
+import {CartContext} from "../context/CartContext";
 
+const ProductCard=({product})=>{
+const {addToCart}=useContext(CartContext);
 
 return (
 
@@ -12,7 +15,11 @@ return (
 <p>
 ₹{product.price}
 </p>
-
+<button
+onClick={()=>addToCart(product)}
+>
+Add To Cart
+</button>
 <p>
 {product.category}
 </p>
@@ -20,6 +27,7 @@ return (
 <p>
 Stock: {product.stock}
 </p>
+
 
 
 </div>
