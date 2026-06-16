@@ -16,7 +16,7 @@ fetchCart();
 
 const total = cart.reduce(
 (total,item)=>
-total + (item.product.price * item.quantity),
+total + ((item.product ? item.product.price : 0) * item.quantity),
 0
 );
 
@@ -39,7 +39,7 @@ cart.map(item=>(
 <div key={item._id}>
 
 <h3>
-{item.product.name}
+{item.product ? item.product.name : "Product unavailable"}
 </h3>
 
 <p>
@@ -47,7 +47,7 @@ Quantity: {item.quantity}
 </p>
 
 <p>
-Price: ₹{item.product.price}
+Price: ₹{item.product ? item.product.price : "N/A"}
 </p>
 
 

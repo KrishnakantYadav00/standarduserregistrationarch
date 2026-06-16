@@ -11,11 +11,16 @@ const [cart,setCart]=useState([]);
 
 const fetchCart=async()=>{
 
+try{
 const res=await axios.get(
 "http://localhost:5000/api/cart"
 );
 
 setCart(res.data);
+}catch(err){
+console.error("Failed to fetch cart:",err);
+setCart([]);
+}
 
 };
 

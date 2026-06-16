@@ -5,7 +5,14 @@ const cartRoutes=require("./routes/cartRoutes");
 const productRoutes =
 require("./routes/productRoutes");
 const connectDB=require("./config/db");
+const wishlistRoutes =
+require("./routes/wishlistRoutes");
 
+
+app.use(
+"/api/wishlist",
+wishlistRoutes
+);
 
 connectDB();
 

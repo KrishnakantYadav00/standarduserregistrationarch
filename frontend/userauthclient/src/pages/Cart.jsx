@@ -34,12 +34,12 @@ cart.map(item=>(
 
 
 <h3>
-{item.product.name}
+{item.product ? item.product.name : "Product unavailable"}
 </h3>
 
 
 <p>
-₹ {item.product.price}
+₹ {item.product ? item.product.price : "N/A"}
 </p>
 
 
