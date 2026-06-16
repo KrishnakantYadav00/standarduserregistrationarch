@@ -12,6 +12,10 @@ Products
 Cart
 </a>
 
+<a href="/wishlist">
+Wishlist
+</a>
+
 </nav>
 
 )

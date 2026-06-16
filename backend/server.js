@@ -1,12 +1,46 @@
 const express=require("express");
 const cors=require("cors");
+
 require("dotenv").config();
+
 const cartRoutes=require("./routes/cartRoutes");
-const productRoutes =
-require("./routes/productRoutes");
-const connectDB=require("./config/db");
-const wishlistRoutes =
-require("./routes/wishlistRoutes");
+const productRoutes=require("./routes/productRoutes");
+const wishlistRoutes=require("./routes/wishlistRoutes");
+
+const connectDB=require("./config/db"); 
+
+
+const app = express();  
+
+
+// middleware
+app.use(cors());
+
+app.use(express.json());
+
+
+// database
+connectDB();
+
+
+// routes
+
+app.use(
+"/api/auth",
+require("./routes/authRoutes")
+);
+
+
+app.use(
+"/api/cart",
+cartRoutes
+);
+
+
+app.use(
+"/api/products",
+productRoutes
+);
 
 
 app.use(
@@ -14,32 +48,8 @@ app.use(
 wishlistRoutes
 );
 
-connectDB();
 
-
-const app=express();
-
-
-app.use(cors());
-
-app.use(express.json()); 
-
-
-app.use(
-"/api/auth",
-require("./routes/authRoutes")
-);
-app.use(
-"/api/cart",
-cartRoutes
-);
-app.use(
-"/api/products",
-require("./routes/productRoutes")
-);
-
-
-
+// server
 app.listen(
 process.env.PORT,
 ()=>console.log("Server running")

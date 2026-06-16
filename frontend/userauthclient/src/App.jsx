@@ -8,7 +8,9 @@ import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
-
+import Wishlist from "./pages/Wishlist";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App(){
 
@@ -16,6 +18,7 @@ return (
 
 <BrowserRouter>
 <Navbar/>
+<ToastContainer />
 <Routes>
 <Route
 path="/products"
@@ -25,6 +28,11 @@ element={
 </ProtectedRoute>
 }
 />
+<Route
+path="/wishlist"
+element={<Wishlist/>}
+/>
+
 
 <Route
 path="/checkout"
@@ -45,6 +53,7 @@ element={<Login/>}
 path="/register"
 element={<Register/>}
 />
+
 
 <Route
 path="/cart"
