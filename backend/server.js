@@ -2,7 +2,8 @@ const express=require("express");
 const cors=require("cors");
 
 require("dotenv").config();
-
+const orderRoutes=
+require("./routes/orderRoutes");
 const cartRoutes=require("./routes/cartRoutes");
 const productRoutes=require("./routes/productRoutes");
 const wishlistRoutes=require("./routes/wishlistRoutes");
@@ -29,7 +30,10 @@ app.use(
 "/api/auth",
 require("./routes/authRoutes")
 );
-
+app.use(
+"/api/orders",
+orderRoutes
+);
 
 app.use(
 "/api/cart",
