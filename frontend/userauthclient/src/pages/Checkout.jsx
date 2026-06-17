@@ -1,7 +1,7 @@
 import {useContext} from "react";
 import {CartContext} from "../context/CartContext";
 import {useEffect} from "react";
-
+import {placeOrder} from "../api/orderApi";
 function Checkout(){
 
 const {cart,fetchCart}=useContext(CartContext);
@@ -20,7 +20,30 @@ total + ((item.product ? item.product.price : 0) * item.quantity),
 0
 );
 
+const handlePlaceOrder = async()=>{
 
+try{
+
+await placeOrder();
+
+alert(
+"Order placed successfully"
+);
+
+fetchCart();
+
+}
+catch(err){
+
+alert(
+"Failed to place order"
+);
+
+console.log(err);
+
+}
+
+};
 return (
 
 <div>
@@ -94,7 +117,9 @@ placeholder="Phone Number"
 <br/>
 
 
-<button>
+<button
+onClick={handlePlaceOrder}
+>
 Place Order
 </button>
 

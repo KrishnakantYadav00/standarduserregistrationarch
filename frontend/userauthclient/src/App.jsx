@@ -11,7 +11,7 @@ import Checkout from "./pages/Checkout";
 import Wishlist from "./pages/Wishlist";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import Orders from "./pages/Orders";
 function App(){
 
 return (
@@ -46,7 +46,10 @@ element={
 </ProtectedRoute>
 }
 />
-
+<Route
+path="/orders"
+element={<Orders/>}
+/>
 <Route
 path="/login"
 element={<Login/>}
