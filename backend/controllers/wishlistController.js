@@ -158,3 +158,12 @@ error:err.message
 
 
 }
+// DEV BYPASS: Get all wishlists in the database
+exports.getAllWishlists = async(req,res)=>{
+try{
+  const wishlists = await Wishlist.find().populate("products");
+  res.json(wishlists);
+}catch(err){
+  res.status(500).json({error:err.message})
+}
+}

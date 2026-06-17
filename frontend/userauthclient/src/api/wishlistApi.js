@@ -53,4 +53,14 @@ Authorization:
 }
 );
 
-};
+};
+
+
+export const clearWishlist = ()=>{
+
+return axios.delete(
+`${API}/clear`,
+getConfig()
+);
+
+};

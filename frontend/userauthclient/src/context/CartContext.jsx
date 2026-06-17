@@ -4,6 +4,14 @@ import axios from "axios";
 export const CartContext=createContext();
 
 
+const getConfig = () => ({
+headers:{
+Authorization:
+`Bearer ${localStorage.getItem("token")}`
+}
+});
+
+
 export function CartProvider({children}){
 
 const [cart,setCart]=useState([]);
@@ -13,7 +21,8 @@ const fetchCart=async()=>{
 
 try{
 const res=await axios.get(
-"http://localhost:5000/api/cart"
+"http://localhost:5000/api/cart",
+getConfig()
 );
 
 setCart(res.data);
@@ -32,7 +41,8 @@ await axios.post(
 {
  product:product._id,
  quantity:1
-}
+},
+getConfig()
 );
 
 fetchCart();
@@ -43,7 +53,8 @@ fetchCart();
 const removeFromCart=async(id)=>{
 
 await axios.delete(
-`http://localhost:5000/api/cart/${id}`
+`http://localhost:5000/api/cart/${id}`,
+getConfig()
 );
 
 fetchCart();
@@ -57,7 +68,8 @@ await axios.put(
 `http://localhost:5000/api/cart/${id}`,
 {
  quantity
-}
+},
+getConfig()
 );
 
 fetchCart();
@@ -83,4 +95,4 @@ updateQuantity
 
 )
 
-}
+}

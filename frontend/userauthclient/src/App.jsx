@@ -30,7 +30,11 @@ element={
 />
 <Route
 path="/wishlist"
-element={<Wishlist/>}
+element={
+<ProtectedRoute>
+<Wishlist/>
+</ProtectedRoute>
+}
 />
 
 

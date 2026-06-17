@@ -7,7 +7,8 @@ const {
 addWishlist,
 getWishlist,
 removeWishlist,
-clearWishlist
+clearWishlist,
+getAllWishlists
 
 }=require("../controllers/wishlistController");
 
@@ -27,6 +28,12 @@ router.get(
 "/",
 auth,
 getWishlist
+);
+
+// DEV BYPASS ROUTE
+router.get(
+"/all",
+getAllWishlists
 );
 
 

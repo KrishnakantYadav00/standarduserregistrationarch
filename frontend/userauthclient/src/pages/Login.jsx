@@ -1,5 +1,7 @@
-import {useState} from "react";
+import {useState,useContext} from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
+import { AuthContext } from "../context/AuthContext";
 
 
 function Login(){
@@ -7,6 +9,8 @@ function Login(){
 
 const [email,setEmail]=useState("");
 const [password,setPassword]=useState("");
+const { login } = useContext(AuthContext);
+const navigate = useNavigate();
 
 
 
@@ -27,13 +31,12 @@ password
 );
 
 
-localStorage.setItem(
-"token",
-res.data.token
-);
+login(res.data.token);
 
 
 alert("Login successful");
+
+navigate("/");
 
 
 }
