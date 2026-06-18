@@ -17,6 +17,18 @@ export function AuthProvider({ children }) {
   );
 
 
+  const [user, setUser] = useState(() => {
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      try {
+        return JSON.parse(atob(storedToken.split('.')[1]));
+      } catch(e) {
+        return null;
+      }
+    }
+    return null;
+  });
+
   const login = (newToken) => {
 
     localStorage.setItem("token", newToken);
@@ -24,6 +36,12 @@ export function AuthProvider({ children }) {
     setToken(newToken);
 
     setIsAuthenticated(true);
+    
+    try {
+      setUser(JSON.parse(atob(newToken.split('.')[1])));
+    } catch(e) {
+      setUser(null);
+    }
 
   };
 
@@ -35,6 +53,8 @@ export function AuthProvider({ children }) {
     setToken(null);
 
     setIsAuthenticated(false);
+    
+    setUser(null);
 
   };
 
@@ -61,7 +81,8 @@ export function AuthProvider({ children }) {
         token,
         isAuthenticated,
         login,
-        logout
+        logout,
+        user
       }}
     >
 

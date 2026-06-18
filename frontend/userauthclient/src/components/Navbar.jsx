@@ -15,6 +15,9 @@ Cart
 <a href="/wishlist">
 Wishlist
 </a>
+<a href="/orders">
+Orders
+</a>
 
 </nav>
 

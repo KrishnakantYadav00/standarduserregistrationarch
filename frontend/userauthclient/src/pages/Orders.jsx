@@ -82,6 +82,10 @@ Total:
 ₹{order.totalAmount}
 
 </p>
+<p>
+Date & Time:
+{new Date(order.createdAt).toLocaleString()}
+</p>
 
 <button
 onClick={()=>

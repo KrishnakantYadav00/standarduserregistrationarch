@@ -12,6 +12,7 @@ import Wishlist from "./pages/Wishlist";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Orders from "./pages/Orders";
+import ProductDetails from "./pages/ProductDetails";
 function App(){
 
 return (
@@ -25,6 +26,14 @@ path="/products"
 element={
 <ProtectedRoute>
 <Products/>
+</ProtectedRoute>
+}
+/>
+<Route
+path="/products/:id"
+element={
+<ProtectedRoute>
+<ProductDetails/>
 </ProtectedRoute>
 }
 />

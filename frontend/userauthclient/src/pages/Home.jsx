@@ -14,12 +14,12 @@ return (
 <div>
 
 <h1>
-Dashboard
+Welcome to the Home page Dashboard
 </h1>
 
 
 <p>
-JWT protected area
+This is a JWT protected area
 </p>
 
 

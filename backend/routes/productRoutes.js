@@ -7,6 +7,7 @@ const {
 
 createProduct,
 getProducts,
+getProductById,
 updateProduct,
 deleteProduct
 
@@ -25,6 +26,11 @@ router.get(
 getProducts
 );
 
+router.get(
+"/:id",
+getProductById
+);
+
 
 
 router.put(
@@ -38,26 +44,6 @@ router.delete(
 "/:id",
 deleteProduct
 );
-const getProductById = async(req,res)=>{
-
-    try{
-
-        const product =
-        await Product.findById(req.params.id);
-
-
-        res.json(product);
-
-    }
-    catch(error){
-
-        res.status(500).json({
-            message:error.message
-        });
-
-    }
-
-};
 
 
 module.exports=router;

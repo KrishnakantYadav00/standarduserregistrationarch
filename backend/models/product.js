@@ -19,7 +19,15 @@ type:Number,
 required:true
 },
 category:{type:String,required:true},
-stock:{type:Number,required:true},},{
+stock:{type:Number,required:true},
+averageRating: {
+    type: Number,
+    default: 0
+},
+numReviews: {
+    type: Number,
+    default: 0
+}},{
 
 timestamps:true
 });

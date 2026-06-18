@@ -21,8 +21,8 @@ router.post(
 "/add",
 auth,
 addWishlist
-);
-
+); 
+ 
 
 router.get(
 "/",

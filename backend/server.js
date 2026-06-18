@@ -7,6 +7,7 @@ require("./routes/orderRoutes");
 const cartRoutes=require("./routes/cartRoutes");
 const productRoutes=require("./routes/productRoutes");
 const wishlistRoutes=require("./routes/wishlistRoutes");
+const reviewRoutes=require("./routes/reviewRoutes");
 
 const connectDB=require("./config/db"); 
 
@@ -50,6 +51,11 @@ productRoutes
 app.use(
 "/api/wishlist",
 wishlistRoutes
+);
+
+app.use(
+"/api/reviews",
+reviewRoutes
 );
 
 
