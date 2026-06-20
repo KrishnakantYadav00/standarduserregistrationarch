@@ -21,7 +21,7 @@ export const updateReview = (reviewId, rating, comment) => {
 };
 
 export const deleteReview = (reviewId) => {
-    return api.delete(
+    return api.delete( 
         `/reviews/${reviewId}`
     );
 };

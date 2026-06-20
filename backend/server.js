@@ -46,7 +46,7 @@ app.use(
 "/api/products",
 productRoutes
 );
-
+ 
 
 app.use(
 "/api/wishlist",
@@ -56,6 +56,11 @@ wishlistRoutes
 app.use(
 "/api/reviews",
 reviewRoutes
+);
+
+app.use(
+"/api/payments",
+require("./routes/paymentRoutes")
 );
 
 

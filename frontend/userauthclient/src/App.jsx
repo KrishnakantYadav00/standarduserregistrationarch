@@ -13,6 +13,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Orders from "./pages/Orders";
 import ProductDetails from "./pages/ProductDetails";
+import Payments from "./pages/Payments";
 function App(){
 
 return (
@@ -58,6 +59,10 @@ element={
 <Route
 path="/orders"
 element={<Orders/>}
+/>
+<Route
+path="/payments"
+element={<Payments/>}
 />
 <Route
 path="/login"

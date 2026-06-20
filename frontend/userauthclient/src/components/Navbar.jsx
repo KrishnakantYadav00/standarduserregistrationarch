@@ -18,6 +18,9 @@ Wishlist
 <a href="/orders">
 Orders
 </a>
+<a href="/payments">
+Payments
+</a>
 
 </nav>
 
