@@ -4,7 +4,7 @@ import {useEffect} from "react";
 import {placeOrder} from "../api/orderApi";
 import {createPayment,verifyPayment} from "../api/paymentApi";
 import {toast} from "react-toastify";
-
+    
 function Checkout(){
 
 const {cart,fetchCart}=useContext(CartContext);

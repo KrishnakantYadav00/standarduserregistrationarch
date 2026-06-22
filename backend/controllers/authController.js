@@ -1,4 +1,4 @@
-const User=require("../models/User");
+const User=require("../models/user");
 const bcrypt=require("bcryptjs");
 const jwt=require("jsonwebtoken");
 
@@ -76,7 +76,8 @@ return res.status(400).json("Wrong password");
 const token=jwt.sign(
 
 {
-id:user._id
+id:user._id,
+role:user.role
 },
 
 process.env.JWT_SECRET,
